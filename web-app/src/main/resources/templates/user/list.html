@@ -5,8 +5,10 @@
 <body>
   <div class="container">
     <h1>作業員一覧</h1>
-    <br>
 
+    <!-- サイト内から名前を検索する検索フォームを表示 -->
+ 
+ 
     <div class="float-end">
       <a th:href="@{/user/add}" class="btn btn-primary">新規登録はこちら</a>
     </div>
@@ -19,6 +21,7 @@
           <th>血液型</th>
           <th>住所</th>
           <th>電話番号</th>
+          <th>緊急連絡先</th>
           <th>更新日時</th>
           <th></th>
         </tr>
@@ -27,12 +30,17 @@
         <tr th:each="user: ${userlist}" th:object="${user}">
           <td class="center" th:text="*{id}"></td>
           <td th:text="*{name}"></td>
+          <!-- 血液型欄を追加 -->
           <td th:text="*{blood_type}"></td>
           <td th:text="*{address}"></td>
           <td class="center" th:text="*{phone}"></td>
+          <!-- 緊急連絡先欄を追加 -->
+          <td class="center" th:text="*{emergency_contact}"></td>
           <td class="center" th:text="*{#dates.format(updateDate, 'yyyy/MM/dd HH:mm:ss')}"></td>
           <td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
         </tr>
       </tbody>
     </table>
   </div>
+</body>
+</html>

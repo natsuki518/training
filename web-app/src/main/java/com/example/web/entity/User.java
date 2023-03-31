@@ -41,7 +41,7 @@ public class User {
 	private String name;
 
 	/**
-	 * 名前
+	 * 血液型
 	 */
 	@Column(name = "blood_type")
 	@NotBlank(message = "血液型を選択してください")
@@ -61,6 +61,14 @@ public class User {
 	@NotBlank(message = "電話番号を入力してください")
 	@Pattern(regexp = "|\\d{1,4}-\\d{1,4}-\\d{4}", message = "電話番号の形式（xxxx-xxxx-xxxx）で入力してください")
 	private String phone;
+	
+	/**
+	 * 緊急連絡先
+	 */
+	@Column(name = "emergency_contact")
+	@NotBlank(message = "緊急連絡先を入力してください")
+	@Pattern(regexp = "|\\d{1,4}-\\d{1,4}-\\d{4}", message = "電話番号の形式（xxxx-xxxx-xxxx）で入力してください")
+	private String emergency_contact;
 
 	/**
 	 * 更新日時

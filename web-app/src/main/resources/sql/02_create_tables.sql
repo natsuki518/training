@@ -8,3 +8,7 @@ CREATE TABLE IF NOT EXISTS user (
   delete_date DATETIME NULL,
   PRIMARY KEY (id)
 );
+
+ALTER TABLE user ADD blood_type varchar(10) AFTER phone;
+
+ALTER TABLE user ADD emergency_contact varchar(12) AFTER phone;

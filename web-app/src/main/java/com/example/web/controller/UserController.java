@@ -24,8 +24,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+
 	/**
-	 * ユーザー情報の一覧画面を表示します。<br>
+	 * ユーザー情報の一覧画面を表示します。
 	 * すべてのデータを表示ます。
 	 * 
 	 * @param model　Timeleafに渡すレスポンスデータです
@@ -39,10 +40,11 @@ public class UserController {
 		return "user/list";
 	}
 
+
 	/**
 	 * ユーザーの詳細画面を表示する。
 	 *
-	 * @param id ユーザーID
+	 * @param id ユーザー
 	 * @param model モデル
 	 * @return ユーザー詳細画面
 	 */
@@ -133,7 +135,7 @@ public class UserController {
 
 		} catch (OptimisticLockException e) {
 			// 排他制御に失敗した場合
-			model.addAttribute("message", "データが他の方によって更新されたようです。詳細画面に戻ってから再実施してください。");
+			model.addAttribute("message", e.getMessage());
 			return "user/edit";
 		}
 	}

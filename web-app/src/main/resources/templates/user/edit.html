@@ -26,12 +26,15 @@
       <div class="row">
         <label class="col-2 border bg-light col-form-label d-flex align-items-center" for="inputblood_type"> 血液型:&nbsp;<span class="badge bg-danger">必須</span>
         </label><br> 
+        
+        <!-- 血液型をボタンで選択して登録or更新する（type="radio"は１つのみ選択可能） -->
         <div class="col border p-2">
-          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="A型">A型 
-          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="B型">B型 
-          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="O型">O型 
-          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="AB型">AB型
+          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_A" value="A型">A型 
+          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_B" value="B型">B型 
+          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_O" value="O型">O型 
+          <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_AB" value="AB型">AB型
         </div>
+        
       </div>
       <div class="row">
         <label class="col-2 border bg-light col-form-label d-flex align-items-center" for="inputAddress">住所:</label>
@@ -47,6 +50,14 @@
           <div class="invalid-feedback" th:errors="*{phone}"></div>
         </div>
       </div>
+      <!-- 緊急連絡先を登録or更新する-->
+       <div class="row">
+        <label class="col-2 border bg-light col-form-label d-flex align-items-center" for="inputemErgency_contact"> 緊急連絡先: <span class="badge bg-danger">必須</span></label>
+        <div class="col border p-2">
+          <input type="text" class="form-control" th:errorclass="is-invalid" id="inputemergency_contact" th:field="*{emergency_contact}" placeholder="0120-1234-1234">
+          <div class="invalid-feedback" th:errors="*{emergency_contact}"></div>
+        </div>
+      </div>     
       <div class="row">
         <label class="col-2 border bg-light col-form-label ">更新日時:</label>
         <div class="col border">

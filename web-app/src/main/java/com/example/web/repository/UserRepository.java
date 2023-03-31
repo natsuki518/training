@@ -13,7 +13,7 @@ import jakarta.persistence.LockModeType;
  * ユーザーデータを扱うリポジトリクラスです。
  */
 public interface UserRepository extends JpaRepository<User, Long> {
-	
+
 	/**
 	 * 指定されたIDに該当するユーザー情報をPessimistic Lockで取得します。
 	 *
@@ -24,4 +24,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query("SELECT u FROM User u WHERE u.id = :id")
 	User findOneForUpdate(@Param("id") Long id);
 
+	
 }

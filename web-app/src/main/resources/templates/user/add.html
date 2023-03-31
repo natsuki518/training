@@ -17,13 +17,12 @@
         </label> <input type="text" class="form-control" id="inputName" th:field="*{name}" placeholder="サンプル太郎" th:errorclass="is-invalid">
         <div class="invalid-feedback" th:errors="*{name}"></div>
       </div>
+      <!-- 血液型をボタンで選択して登録する（type="radio"は１つのみ選択可能） -->
       <div class="form-group mt-2">
         <label class="form-label" for="inputAddress">血液型:<span class="badge bg-danger">必須</span>
-        </label><br> 
-        <input type="radio"  th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="A型">A型
-        <input type="radio"  th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="B型">B型
-        <input type="radio"  th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="O型">O型
-        <input type="radio"  th:field="*{blood_type}" th:errorclass="is-invalid" name="num_of_inq" value="AB型">AB型
+        </label><br> <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_A" value="A型">A型 <input type="radio" th:field="*{blood_type}"
+          th:errorclass="is-invalid" name="blood_type_B" value="B型">B型 <input type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_O" value="O型">O型 <input
+          type="radio" th:field="*{blood_type}" th:errorclass="is-invalid" name="blood_type_AB" value="AB型">AB型
         <div class="invalid-feedback" th:errors="*{address}"></div>
       </div>
       <div class="form-group mt-2">
@@ -36,7 +35,13 @@
         </label> <input type="text" class="form-control" id="inputPhone" th:field="*{phone}" placeholder="0120-1234-1234" th:errorclass="is-invalid">
         <div class="invalid-feedback" th:errors="*{phone}"></div>
       </div>
-      <br>
+      <!-- 緊急連絡先を登録する -->
+      <div class="form-group mt-2">
+        <label class="form-label" for="inputName"> 緊急連絡先: <span class="badge bg-danger">必須</span>
+        </label> <input type="text" class="form-control" id="inputeEergency_contact" th:field="*{emergency_contact}" placeholder="0120-1234-1234" th:errorclass="is-invalid">
+        <div class="invalid-feedback" th:errors="*{emergency_contact}"></div>
+      </div>
+       <br>
       <div class="text-center">
         <a th:href="@{/user/list}" class="col-2 btn btn-secondary">一覧に戻る</a> <input type="submit" th:formaction="@{/user/create}" th:formmethod="post" class="col-2 btn btn-primary" value="登録する">
       </div>

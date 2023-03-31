@@ -29,7 +29,7 @@ public class UserService {
 	public List<User> searchAll() {
 		return userRepository.findAll();
 	}
-
+	
 	/**
 	 * 指定されたユーザーIDに対応するユーザー情報を取得します。
 	 *
@@ -80,7 +80,9 @@ public class UserService {
 			user.setUpdateDate(now);
 			return userRepository.save(user);
 		} else {
-			throw new OptimisticLockException(user);
+			String message = "データが他の方によって更新されたようです。詳細画面に戻ってから再実施してください。";
+			throw new OptimisticLockException(message);
 		}
+	
 	}
 }
